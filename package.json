@@ -1,4 +1,42 @@
 {
   "name": "quiz_practice",
-  "packageManager": "yarn@4.8.1"
+  "packageManager": "yarn@4.8.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn workspaces foreach -Rpt --from '{b2c-cms,b2c-quizzie}' run dev",
+    "quizzie:dev": "yarn workspace b2c-quizzie dev",
+    "cms:dev": "yarn workspace b2c-cms dev",
+    "lint": "yarn workspaces foreach -A run lint --config ../../.eslintrc.js",
+    "prepare": "husky",
+    "postinstall": "npx husky install"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@next/eslint-plugin-next": "^15.2.4",
+    "@types/eslint": "^9.6.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
+    "eslint": "^9.24.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-next": "^15.2.4",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.29.1"
+  }
 }
